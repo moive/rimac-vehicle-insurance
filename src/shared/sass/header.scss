@@ -1,0 +1,12 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 24px calc(120/1360 * 100%);
+  position: absolute;
+  top:0;
+  width: 100%;
+}
+.info-doubts{
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,75 @@
+@use 'normalize';
+@use 'mixin' as *;
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+body{
+  @include RobotoSans();
+  color: #494F66;
+}
+h2{
+  font-size: 28px;
+  line-height: 36px;
+  @include LatoSans();
+}
+.main-container{
+  display: flex;
+  height: 100vh;
+}
+.home-left{
+  background: #ECF0FF url("../assets/background-main-home.svg") no-repeat center top / 100%;
+  max-width: calc(536/1360 * 100%);
+  padding: 96px calc(64/1634 * 100%) 0 calc(160/1634 * 100%);
+  width: 100%;
+}
+.home-right{
+  padding:112px 0 0 calc(226/1360 * 100%);
+}
+.big-image-left{
+  text-align: center;
+  img{
+    width: 100%;
+  }
+}
+.by-calling{
+  display: flex;
+  margin-left: 25px;
+  text-decoration: none;
+  color: #6464FA;
+}
+.is-mobile{
+  display: none;
+}
+
+.group-text-home{
+  @include LatoSans();
+  &-new{
+    @include LatoSans(bold);
+    padding-bottom: 4px
+  }
+  &-info{
+    padding-top:16px;
+    padding-left: 5px;
+    @include RobotoSans();
+  }
+}
+
+
+.text-large{
+  @include LatoSans();
+  font-size: 36px;
+  line-height: 48px;
+}
+
+.text-red{
+  color: #FF1C44;
+}
+
+@media (max-width: 992px){
+  .is-mobile{
+    display: inline-block;
+  }
+  .is-desktop{
+    display: none;
+  }
+}
