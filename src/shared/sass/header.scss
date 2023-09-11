@@ -1,3 +1,4 @@
+@import "../../global-sass/mixin";
 header{
   display: flex;
   justify-content: space-between;
@@ -9,6 +10,10 @@ header{
 .info-doubts{
   display: flex;
   align-items: center;
+}
+.any-doubt{
+  @include RobotoSans();
+  font-size: 12px;
 }
 
 @media (max-width: 992px){
