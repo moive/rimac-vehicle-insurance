@@ -1,12 +1,12 @@
-// import reactLogo from "./assets/react.svg";
-// import './App.css'
-
-import { Home } from "./home/views/Home";
+import { BrowserRouter } from "react-router-dom";
+import { RouterNavigation } from "./store/RouterNavigation";
 
 function App() {
 	return (
 		<>
-			<Home />
+			<BrowserRouter>
+				<RouterNavigation />
+			</BrowserRouter>
 		</>
 	);
 }
