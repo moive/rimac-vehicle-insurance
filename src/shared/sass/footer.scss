@@ -2,6 +2,12 @@ footer{
   bottom: 0;
   color: #A9AFD9;
   font-size: 12px;
-  padding: 40px 121px;
-  position:absolute;
+  padding: 40px calc(121/1360 * 100%);
+  margin-top:-94px;
+}
+@media (max-width: 992px){
+  footer{
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }

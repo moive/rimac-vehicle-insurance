@@ -7,7 +7,7 @@ const Header = () => {
 				<img src="/src/assets/logo-rimac.svg" />
 			</a>
 			<div className="info-doubts">
-				<span>¿Tienes alguna duda?</span>
+				<span className="any-doubt">¿Tienes alguna duda?</span>
 				<a href="tel:(01) 411 6001" className="by-calling">
 					<img src="/src/assets/icon-phone.svg" alt="icon-phone" />
 					<span className="is-desktop">(01) 411 6001</span>

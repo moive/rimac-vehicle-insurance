@@ -1,5 +1,7 @@
 @use 'normalize';
 @use 'mixin' as *;
+@use 'variables' as *;
+
 *, ::after, ::before {
   box-sizing: border-box;
 }
@@ -12,14 +14,20 @@ h2{
   line-height: 36px;
   @include LatoSans();
 }
+button{
+  cursor: pointer;
+}
+figure{
+  margin: 0;
+}
 .main-container{
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 .home-left{
   background: #ECF0FF url("../assets/background-main-home.svg") no-repeat center top / 100%;
   max-width: calc(536/1360 * 100%);
-  padding: 96px calc(64/1634 * 100%) 0 calc(160/1634 * 100%);
+  padding: 96px calc(64/1634 * 100%) 120px calc(160/1634 * 100%);
   width: 100%;
 }
 .home-right{
@@ -31,7 +39,11 @@ h2{
     width: 100%;
   }
 }
+.big-image-left-mobile{
+  display: none;
+}
 .by-calling{
+  align-items: center;
   display: flex;
   margin-left: 25px;
   text-decoration: none;
@@ -61,8 +73,56 @@ h2{
   line-height: 48px;
 }
 
-.text-red{
-  color: #FF1C44;
+.text-red, .text-change{
+  color: $red;
+}
+
+.row-form{
+  display: flex;
+  margin-bottom: 16px;
+  align-items: end;
+}
+
+.form-get-data{
+  max-width: 300px;
+}
+.cus-form{
+  label{
+    margin-right: 0;
+  }
+}
+.wid-cus-select{
+  max-width: 96px;
+  .MuiSvgIcon-root{
+    color:$red;
+  }
+  .MuiInputBase-root{
+    border-radius: 4px 0 0 4px;
+  }
+  + .MuiTextField-root .MuiInputBase-root{
+    border-radius: 0 4px 4px 0;
+  }
+}
+.check-label{
+  color: #676F8F;
+  font-size: 12px;
+  a{
+    color: #676F8F;
+  }
+}
+.btn{
+  @include LatoSans(bold);
+  background: $red;
+  color: white;
+  border:none;
+  border-radius: 8px;
+  max-width: 192px;
+  padding: 20px;
+  width: 100%;
+}
+
+.group-btn{
+  padding-top: 24px;
 }
 
 @media (max-width: 992px){
@@ -71,5 +131,64 @@ h2{
   }
   .is-desktop{
     display: none;
+  }
+  .home-left{
+    padding-left: 6%;
+  }
+  .home-right{
+    padding-left: 8%;
+  }
+}
+
+@media (max-width: 615px){
+  .any-doubt{
+    display: none;
+  }
+  .text-change{
+    color: inherit;
+  }
+  .main-container{
+    flex-direction: column;
+  }
+  .home-left, .home-right{
+    max-width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .home-left{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 56px;
+    padding-right: 0;
+    position: relative;
+  }
+  .home-right{
+    padding-top: 25px;
+  }
+  .big-image-left{
+    display: none;
+  }
+  .big-image-left-mobile{
+    display: inline-block;
+    bottom: -30px;
+    position: absolute;
+    right: 0;
+  }
+  .form-get-data{
+    max-width: 100%;
+  }
+  .wid-cus-select + div{
+    flex: auto;
+  }
+  footer{
+    margin-top: 0;
+  }
+  .group-btn{
+    .btn{
+      max-width: 100%;
+    }
+  }
+  .group-text-home{
+    max-width: 70%;
   }
 }
