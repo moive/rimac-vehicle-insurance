@@ -80,7 +80,7 @@ figure{
 .row-form{
   display: flex;
   margin-bottom: 16px;
-  align-items: end;
+  // align-items: end;
 }
 
 .form-get-data{
@@ -119,6 +119,10 @@ figure{
   max-width: 192px;
   padding: 20px;
   width: 100%;
+  &:disabled {
+    background-color: #494F66;
+    cursor: not-allowed;
+  }
 }
 
 .group-btn{
