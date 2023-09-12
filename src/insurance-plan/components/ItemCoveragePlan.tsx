@@ -4,18 +4,23 @@ type Props = {
 	title: string;
 	iconImage: string;
 	description: string;
+	fn: () => void;
+	isActive: boolean;
 };
 
-export const ItemCoveragePlan = ({ title, iconImage, description }: Props) => {
+export const ItemCoveragePlan = ({
+	title,
+	iconImage,
+	description,
+	isActive,
+	fn,
+}: Props) => {
 	const [open, setOpen] = useState(false);
-	const [add, setAdd] = useState(false);
 
 	const toggle = () => {
 		setOpen(!open);
 	};
-	const addItem = () => {
-		setAdd(!add);
-	};
+
 	return (
 		<div className="item-coverage-plan">
 			<div className="item-coverage-plan-top">
@@ -28,8 +33,8 @@ export const ItemCoveragePlan = ({ title, iconImage, description }: Props) => {
 				<div className="item-coverage-plan-middle">
 					<div className="item-coverage-plan-title">{title}</div>
 					<div className="item-coverage-plan-add-remove">
-						<button onClick={() => addItem()}>
-							{add ? (
+						<button onClick={fn}>
+							{isActive ? (
 								<>
 									<img
 										src="/src/assets/icon-circle-minus.svg"

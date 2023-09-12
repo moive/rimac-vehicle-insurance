@@ -1,6 +1,59 @@
+import { useState, useEffect } from "react";
 import { ItemCoveragePlan } from "./ItemCoveragePlan";
 
 export const YourPlanRight = () => {
+	const [amountTotal, setAmountTotal] = useState<number>(14300);
+	const [theft, setTheft] = useState(false);
+	const [crash, setCrash] = useState(false);
+	const [accidentRoad, setAccidentRoad] = useState(false);
+
+	const [planBasic, setPlanBasic] = useState<number>(20);
+
+	const valTheft = 15;
+	const valCrash = 20;
+	const valAccidentRoad = 50;
+
+	const decrement = () => {
+		setAmountTotal((amountTotal) => amountTotal - 100);
+	};
+
+	const increment = () => {
+		setAmountTotal(amountTotal + 100);
+	};
+
+	const fnTheft = () => {
+		if (!theft) {
+			setPlanBasic(planBasic + valTheft);
+		} else {
+			setPlanBasic(planBasic - valTheft);
+		}
+		setTheft((theft) => !theft);
+	};
+
+	const fnCrash = () => {
+		if (!crash) {
+			setPlanBasic(planBasic + valCrash);
+		} else {
+			setPlanBasic(planBasic - valCrash);
+		}
+		setCrash((crash) => !crash);
+	};
+	const fnAccidentRoad = () => {
+		if (!accidentRoad) {
+			setPlanBasic(planBasic + valAccidentRoad);
+		} else {
+			setPlanBasic(planBasic - valAccidentRoad);
+		}
+		setAccidentRoad((accidentRoad) => !accidentRoad);
+	};
+
+	useEffect(() => {
+		if (amountTotal > 16000 && crash) {
+			setCrash(false);
+			setPlanBasic(planBasic - valCrash);
+		}
+	}, [amountTotal]);
+
 	return (
 		<div className="insurance-plan-right">
 			<div className="breadcrumb">
@@ -41,11 +94,11 @@ export const YourPlanRight = () => {
 							</div>
 						</div>
 						<div className="group-total-insurence-minusplus-total">
-							<button>
+							<button onClick={decrement}>
 								<img src="/src/assets/icon-minus.svg" alt="" />
 							</button>
-							<span>$ 14,300</span>
-							<button>
+							<span>$ {amountTotal}</span>
+							<button onClick={increment}>
 								<img src="/src/assets/icon-plus.svg" alt="" />
 							</button>
 						</div>
@@ -67,16 +120,27 @@ export const YourPlanRight = () => {
 						</ul>
 						<div className="protect-your-car">
 							<ItemCoveragePlan
+								fn={fnTheft}
+								isActive={theft}
 								title="Llanta robada"
 								iconImage="icon-theft"
 								description="He salido de casa a las cuatro menos cinco para ir a la academia de ingles de mi pueblo (Sant Cugat, al lado de Barcelona) con mi bici, na llego a la academia que está en el centro del pueblo en una plaza medio-grande y dejo donde siempre la bici atada con una pitón a un sitio de esos de poner las bicis y mucho más"
 							/>
+							{amountTotal <= 16000 ? (
+								<ItemCoveragePlan
+									fn={fnCrash}
+									isActive={crash}
+									title="Choque y/o pasarte la luz roja"
+									iconImage="icon-crash"
+									description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aspernatur."
+								/>
+							) : (
+								""
+							)}
+
 							<ItemCoveragePlan
-								title="Choque y/o pasarte la luz roja"
-								iconImage="icon-crash"
-								description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aspernatur."
-							/>
-							<ItemCoveragePlan
+								fn={fnAccidentRoad}
+								isActive={accidentRoad}
 								title="Atropello en la vía Evitamiento"
 								iconImage="icon-perdidatotal"
 								description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus impedit ab in, numquam voluptate beatae inventore eos aliquam dolor esse porro eum corporis eligendi odio cumque ipsa placeat omnis totam."
@@ -87,7 +151,9 @@ export const YourPlanRight = () => {
 				<div className="content-info-plan-right">
 					<div className="total-plan">
 						<div className="total-plan-title">Monto</div>
-						<div className="total-plan-amount">$35.00</div>
+						<div className="total-plan-amount">
+							${planBasic.toFixed(2)}
+						</div>
 						<div className="total-plan-mounth">mensuales</div>
 					</div>
 					<div className="description-plan-final">
