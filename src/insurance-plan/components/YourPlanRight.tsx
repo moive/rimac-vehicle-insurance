@@ -58,7 +58,7 @@ export const YourPlanRight = () => {
 		<div className="insurance-plan-right">
 			<div className="breadcrumb">
 				<a href="/">
-					<img src="/src/assets/icon-back.svg" alt="icon-back" />{" "}
+					<img src="/assets/icon-back.svg" alt="icon-back" />{" "}
 					<span>VOLVER</span>
 				</a>
 			</div>
@@ -79,7 +79,7 @@ export const YourPlanRight = () => {
 							Wolkswagen 2019 Golf
 						</div>
 						<figure className="advisor">
-							<img src="/src/assets/advisor.svg" alt="advisor" />
+							<img src="/assets/advisor.svg" alt="advisor" />
 						</figure>
 					</div>
 					<div className="group-total-insurence">
@@ -95,11 +95,11 @@ export const YourPlanRight = () => {
 						</div>
 						<div className="group-total-insurence-minusplus-total">
 							<button onClick={decrement}>
-								<img src="/src/assets/icon-minus.svg" alt="" />
+								<img src="/assets/icon-minus.svg" alt="" />
 							</button>
 							<span>$ {amountTotal}</span>
 							<button onClick={increment}>
-								<img src="/src/assets/icon-plus.svg" alt="" />
+								<img src="/assets/icon-plus.svg" alt="" />
 							</button>
 						</div>
 					</div>
@@ -161,14 +161,14 @@ export const YourPlanRight = () => {
 						<ul className="description-plan-final-list">
 							<li>
 								<img
-									src="/src/assets/icon-check.svg"
+									src="/assets/icon-check.svg"
 									alt="icon-check"
 								/>{" "}
 								Llanta de respuesto
 							</li>
 							<li>
 								<img
-									src="/src/assets/icon-check.svg"
+									src="/assets/icon-check.svg"
 									alt="icon-check"
 								/>{" "}
 								Analisis de motor

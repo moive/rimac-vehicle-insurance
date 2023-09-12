@@ -26,7 +26,7 @@ export const ItemCoveragePlan = ({
 			<div className="item-coverage-plan-top">
 				<figure className="item-coverage-plan-icon">
 					<img
-						src={"/src/assets/" + iconImage + ".svg"}
+						src={"/assets/" + iconImage + ".svg"}
 						alt={iconImage}
 					/>
 				</figure>

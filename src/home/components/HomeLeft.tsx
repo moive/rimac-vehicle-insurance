@@ -2,7 +2,7 @@ export const HomeLeft = () => {
 	return (
 		<section className="home-left">
 			<figure className="big-image-left">
-				<img src="/src/assets/main-desktop-home.svg" />
+				<img src="/assets/main-desktop-home.svg" />
 			</figure>
 			<div className="group-text-home">
 				<div className="group-text-home-new">¡NUEVO!</div>
