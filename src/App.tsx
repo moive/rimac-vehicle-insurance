@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import { RouterNavigation } from "./store/RouterNavigation";
+import { RouterNavigation } from "./router/RouterNavigation";
 
 function App() {
 	return (
