@@ -15,7 +15,7 @@ export const HomeLeft = () => {
 				</div>
 			</div>
 			<figure className="big-image-left-mobile">
-				<img src="/src/assets/main-mobile-home.svg" />
+				<img src="/assets/main-mobile-home.svg" />
 			</figure>
 		</section>
 	);

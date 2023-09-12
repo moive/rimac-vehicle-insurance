@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
 // import FormGroup from '@mui/material/FormGroup';
@@ -9,7 +11,10 @@ import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import { Controller, useForm } from "react-hook-form";
+import { getUser } from "../services/getUser";
+import { IUser } from "../../store/types";
+import { useAppDispatch } from "../../hooks/redux";
+import { addUser } from "../../store/userSlice";
 
 type FormValues = {
 	documentNumber: string;
@@ -30,6 +35,8 @@ export const HomeRight = () => {
 		setisDisabled(!event);
 	};
 
+	const dispatch = useAppDispatch();
+
 	const {
 		handleSubmit,
 		register,
@@ -45,8 +52,29 @@ export const HomeRight = () => {
 		},
 	});
 
-	const onSubmit = (data: FormValues) => {
+	const navigate = useNavigate();
+
+	const onSubmit = async (data: FormValues) => {
 		console.log(data);
+		const api = await getUser();
+		const user: IUser = {
+			username: api.username,
+			email: api.email,
+			name: api.name,
+			phone: data.phone,
+			documentNumber: data.documentNumber,
+			acceptTerms: data.acceptTerms,
+			car: {
+				plate: data.licensePlate,
+				mark: "Wolkswagen",
+				year: 2023,
+				model: "Golf",
+			},
+		};
+		// console.log(4, api);
+		// console.log(user);
+		dispatch(addUser(user));
+		navigate("your-plan");
 	};
 
 	const getMsgError = (

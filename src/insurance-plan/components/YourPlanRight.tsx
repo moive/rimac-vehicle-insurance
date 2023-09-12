@@ -57,8 +57,8 @@ export const YourPlanRight = () => {
 	}, [amountTotal]);
 
 	const state = useAppSelector((state) => state);
-	const { users } = state.user;
-	const user = users[0];
+	const { user } = state.user;
+
 	console.log(user);
 
 	return (

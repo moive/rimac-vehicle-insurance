@@ -1,12 +1,15 @@
 export interface UserState {
-	users: IUser[];
+	user: IUser;
 }
 
 export interface IUser {
-	id: number;
+	id?: number | string;
 	name: string;
 	username: string;
 	email: string;
+	phone: string;
+	documentNumber: string;
+	acceptTerms: boolean;
 	car: ICar;
 }
 
