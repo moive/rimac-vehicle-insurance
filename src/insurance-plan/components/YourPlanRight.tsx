@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { ItemCoveragePlan } from "./ItemCoveragePlan";
+import { useAppSelector } from "../../hooks/redux";
 
 export const YourPlanRight = () => {
 	const [amountTotal, setAmountTotal] = useState<number>(14300);
@@ -54,6 +56,11 @@ export const YourPlanRight = () => {
 		}
 	}, [amountTotal]);
 
+	const state = useAppSelector((state) => state);
+	const { users } = state.user;
+	const user = users[0];
+	console.log(user);
+
 	return (
 		<div className="insurance-plan-right">
 			<div className="breadcrumb">
@@ -65,7 +72,7 @@ export const YourPlanRight = () => {
 			<div>
 				<div className="text-large">
 					<span>Hola </span>
-					<span className="text-red">Juan!</span>
+					<span className="text-red">{user.username}!</span>
 				</div>
 				<p>Conoce las coberturas para tu plan</p>
 			</div>
@@ -73,10 +80,11 @@ export const YourPlanRight = () => {
 				<div className="content-info-plan-left">
 					<div className="info-car">
 						<div className="info-car-number">
-							<span>Placa: </span> <span>C2U-114</span>
+							<span>Placa: </span> <span>{user.car.plate}</span>
 						</div>
 						<div className="info-car-model">
-							Wolkswagen 2019 Golf
+							{/* Wolkswagen 2019 Golf */}
+							{user.car.mark} {user.car.year} {user.car.model}
 						</div>
 						<figure className="advisor">
 							<img src="/assets/advisor.svg" alt="advisor" />
