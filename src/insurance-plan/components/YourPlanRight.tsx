@@ -175,7 +175,7 @@ export const YourPlanRight = () => {
 							</li>
 							<li>
 								<img
-									src="/src/assets/icon-check.svg"
+									src="/assets/icon-check.svg"
 									alt="icon-check"
 								/>{" "}
 								Aros gratis
