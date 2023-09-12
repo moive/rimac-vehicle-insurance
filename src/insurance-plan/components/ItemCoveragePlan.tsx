@@ -37,7 +37,7 @@ export const ItemCoveragePlan = ({
 							{isActive ? (
 								<>
 									<img
-										src="/src/assets/icon-circle-minus.svg"
+										src="/assets/icon-circle-minus.svg"
 										alt=""
 									/>
 									<span>quitar</span>
@@ -45,7 +45,7 @@ export const ItemCoveragePlan = ({
 							) : (
 								<>
 									<img
-										src="/src/assets/icon-circle-plus.svg"
+										src="/assets/icon-circle-plus.svg"
 										alt=""
 									/>
 									<span>agregar</span>
@@ -57,15 +57,9 @@ export const ItemCoveragePlan = ({
 				<div className="item-coverage-plan-icon-right">
 					<button onClick={() => toggle()}>
 						{open ? (
-							<img
-								src="/src/assets/icon-red-arrow-up.svg"
-								alt=""
-							/>
+							<img src="/assets/icon-red-arrow-up.svg" alt="" />
 						) : (
-							<img
-								src="/src/assets/icon-red-arrow-down.svg"
-								alt=""
-							/>
+							<img src="/assets/icon-red-arrow-down.svg" alt="" />
 						)}
 					</button>
 				</div>
