@@ -1,4 +1,4 @@
-import { Fetch } from "../../shared/utils/fetch";
+import { Fetch } from "../../shared/utils/Fetch";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const getUser = async () => {

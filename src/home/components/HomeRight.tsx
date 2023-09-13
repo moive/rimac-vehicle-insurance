@@ -71,8 +71,7 @@ export const HomeRight = () => {
 				model: "Golf",
 			},
 		};
-		// console.log(4, api);
-		// console.log(user);
+
 		dispatch(addUser(user));
 		navigate("your-plan");
 	};
