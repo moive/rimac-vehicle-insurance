@@ -1,4 +1,8 @@
+import { useAppSelector } from "../../hooks/redux";
+
 export const WelcomeRight = () => {
+	const state = useAppSelector((state) => state);
+	const { user } = state.user;
 	return (
 		<div className="welcome-right">
 			<figure className="welcome-image">
@@ -21,8 +25,7 @@ export const WelcomeRight = () => {
 			<p>
 				Enviaremos la confirmación de compra de tu Plan Vehícular
 				Tracking a tu correo:
-				<br />{" "}
-				<span className="bold-roboto">joel.sanchez@gmail.com</span>
+				<br /> <span className="bold-roboto">{user?.email}</span>
 			</p>
 			<div className="group-btn">
 				<button className="btn middle">cómo usar mi seguro</button>
