@@ -1,0 +1,27 @@
+@import "../../global-sass/mixin";
+.main-container{
+  padding:64px 0 0 0;
+}
+.welcome-left{
+  background: #FAFBFF;
+  max-width: 30%;//calc(488/1360 * 100%);
+  padding: 52px 0 0 calc(120/1360 * 100%);
+  width: 100%;
+}
+.welcome-right{
+  padding:112px 0 0 calc(226/1360 * 100%);
+  position: relative;
+  width: 45%;
+}
+.btn{
+  &.middle{
+    max-width: 255px;
+  }
+}
+.welcome-image{
+  position: absolute;
+  left: -42%;
+}
+.welcome-mobile{
+  display: none;
+}

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { ItemCoveragePlan } from "./ItemCoveragePlan";
 import { useAppSelector } from "../../hooks/redux";
+import { useNavigate } from "react-router-dom";
 
 export const YourPlanRight = () => {
 	const [amountTotal, setAmountTotal] = useState<number>(14300);
@@ -59,7 +60,12 @@ export const YourPlanRight = () => {
 	const state = useAppSelector((state) => state);
 	const { user } = state.user;
 
-	console.log(user);
+	console.log({ user });
+
+	const navigate = useNavigate();
+	const welcome = () => {
+		navigate("/welcome");
+	};
 
 	return (
 		<div className="insurance-plan-right">
@@ -72,7 +78,7 @@ export const YourPlanRight = () => {
 			<div>
 				<div className="text-large">
 					<span>Hola </span>
-					<span className="text-red">{user.username}!</span>
+					<span className="text-red">{user?.username}!</span>
 				</div>
 				<p>Conoce las coberturas para tu plan</p>
 			</div>
@@ -80,11 +86,11 @@ export const YourPlanRight = () => {
 				<div className="content-info-plan-left">
 					<div className="info-car">
 						<div className="info-car-number">
-							<span>Placa: </span> <span>{user.car.plate}</span>
+							<span>Placa: </span> <span>{user?.car.plate}</span>
 						</div>
 						<div className="info-car-model">
 							{/* Wolkswagen 2019 Golf */}
-							{user.car.mark} {user.car.year} {user.car.model}
+							{user?.car.mark} {user?.car.year} {user?.car.model}
 						</div>
 						<figure className="advisor">
 							<img src="/assets/advisor.svg" alt="advisor" />
@@ -190,7 +196,9 @@ export const YourPlanRight = () => {
 							</li>
 						</ul>
 						<div className="group-btn">
-							<button className="btn middle">Lo quiero</button>
+							<button className="btn middle" onClick={welcome}>
+								Lo quiero
+							</button>
 						</div>
 					</div>
 				</div>
