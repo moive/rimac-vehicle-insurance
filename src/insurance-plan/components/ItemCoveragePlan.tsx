@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IOSSwitch } from "../../shared/components/IOSSwitch";
 
 type Props = {
 	title: string;
@@ -55,13 +56,19 @@ export const ItemCoveragePlan = ({
 					</div>
 				</div>
 				<div className="item-coverage-plan-icon-right">
-					<button onClick={() => toggle()}>
+					<button
+						onClick={() => toggle()}
+						className="toggle-icon-desktop"
+					>
 						{open ? (
 							<img src="/assets/icon-red-arrow-up.svg" alt="" />
 						) : (
 							<img src="/assets/icon-red-arrow-down.svg" alt="" />
 						)}
 					</button>
+					<span className="toggle-icon-mobile">
+						<IOSSwitch checked={open} onChange={toggle} />
+					</span>
 				</div>
 			</div>
 			{open ? (
