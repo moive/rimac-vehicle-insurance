@@ -46,14 +46,14 @@
 }
 
 .insurance-plan-right{
-  padding:48px 0 0 calc(93/1360 * 100%);
+  padding:48px 30px 100px calc(93/1360 * 100%);
 }
 .breadcrumb{
   @include LatoSans();
   font-size: 12px;
   padding:0 0 24px;
   a{
-    display: flex;
+    display: inline-flex;
     align-items: center;
     color: #A9AFD9;
     img{
@@ -61,6 +61,34 @@
     }
 
   }
+}
+
+.steps-mobile{
+  display: none;
+  @include LatoSans();
+  font-size: 12px;
+  padding:0 0 24px;
+  align-items: center;
+  span{
+    flex:none;
+    display: inline-flex;
+    align-items: center;
+    color: #A9AFD9;
+    text-transform: uppercase;
+    img{
+      padding-right: 12px;
+    }
+
+  }
+}
+
+.slash{
+  background: #6464FA;
+  border-radius: 3px;
+  height: 6px;
+  margin-left: 16px;
+  max-width: 200px;
+  width: 100%;
 }
 
 .content-info-plan{
@@ -215,6 +243,9 @@
     }
   }
 }
+.see-the-coverage{
+  display: none;
+}
 .item-coverage-plan{
   padding:32px 0;
   border-bottom: 1px solid #D7DBF5;
@@ -264,5 +295,74 @@
     line-height: 24px;
     color: #676F8F;
     padding:0 32px 0 72px;
+  }
+}
+.monto-total-mobile{
+  display: none;
+  padding:5px 0;
+}
+
+@media (max-width: 1023px){
+  .insurance-plan-left{
+    display: none;
+  }
+  .insurance-plan-right{
+    padding:12px 32px 120px;
+    width: 100%;
+  }
+  .breadcrumb{
+    display: none;
+  }
+  .steps-mobile{
+    display: flex;
+    padding-bottom: 12px;
+  }
+  .content-info-plan-left{
+    min-width: 350px;
+  }
+  .content-info-plan-right{
+    padding-left: 7%;
+  }
+}
+
+@media (max-width: 615px){
+  .see-the-coverage{
+    display: block;
+  }
+  .text-hide-mobile{
+    display: none;
+  }
+  .content-info-plan{
+    flex-direction: column;
+    &-left{
+      min-width: 56%;
+      width: 100%;
+    }
+    &-right{
+      width: 100%;
+    }
+  }
+  .total-plan{
+    display: none;
+  }
+  .description-plan-final{
+    display: none;
+  }
+  .group-total-insurence{
+    flex-direction: column;
+    &-minusplus-total{
+      margin-top:16px;
+      width: 100%;
+    }
+  }
+  .monto-total-mobile{
+    display: flex;
+    align-items: center;
+  }
+  .group-des-monto{
+    flex:auto;
+  }
+  .grp-mobile-btn{
+    width: 180px;
   }
 }

@@ -75,8 +75,18 @@ export const YourPlanRight = () => {
 					<span>VOLVER</span>
 				</a>
 			</div>
+			<div className="steps-mobile">
+				<span>
+					<img src="/assets/icon-back-mobile.svg" alt="icon-back" />{" "}
+					<span>Paso 2 de 2</span>
+				</span>
+				<div className="slash"></div>
+			</div>
 			<div>
-				<div className="text-large">
+				<div className="text-large see-the-coverage">
+					Mira las coberturas
+				</div>
+				<div className="text-large text-hide-mobile">
 					<span>Hola </span>
 					<span className="text-red">{user?.username}!</span>
 				</div>
@@ -169,6 +179,19 @@ export const YourPlanRight = () => {
 							${planBasic.toFixed(2)}
 						</div>
 						<div className="total-plan-mounth">mensuales</div>
+					</div>
+					<div className="monto-total-mobile">
+						<div className="group-des-monto">
+							<div className="total-plan-amount">
+								${planBasic.toFixed(2)}
+							</div>
+							<div className="total-plan-mounth">mensual</div>
+						</div>
+						<div className="grp-mobile-btn">
+							<button className="btn middle" onClick={welcome}>
+								Lo quiero
+							</button>
+						</div>
 					</div>
 					<div className="description-plan-final">
 						<p>El precio incluye:</p>
