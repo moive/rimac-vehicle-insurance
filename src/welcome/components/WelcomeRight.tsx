@@ -1,8 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from "react";
 import { useAppSelector } from "../../hooks/redux";
+import { IUser } from "../../store/types";
 
 export const WelcomeRight = () => {
+	const us = JSON.parse(localStorage.getItem("user") as string);
 	const state = useAppSelector((state) => state);
+	const [userLocal, setUserLocal] = useState<IUser>();
 	const { user } = state.user;
+
+	useEffect(() => {
+		setUserLocal(us);
+	}, []);
+
 	return (
 		<div className="welcome-right">
 			<figure className="welcome-image">
@@ -26,7 +36,10 @@ export const WelcomeRight = () => {
 				<p>
 					Enviaremos la confirmación de compra de tu Plan Vehícular
 					Tracking a tu correo:
-					<br /> <span className="bold-roboto">{user?.email}</span>
+					<br />{" "}
+					<span className="bold-roboto">
+						{user?.email ?? userLocal?.email}
+					</span>
 				</p>
 			</div>
 			<div className="group-btn">

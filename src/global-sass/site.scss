@@ -132,6 +132,15 @@ a{
   padding: 20px;
   text-transform: uppercase;
   width: 100%;
+  position: relative;
+  min-height: 56px;
+  .loading{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
   &.middle{
     padding: 15px 20px;
   }
@@ -162,6 +171,9 @@ a{
   .home-right{
     padding-left: 8%;
   }
+}
+.upper{
+  text-transform: uppercase;
 }
 
 @media (max-width: 615px){

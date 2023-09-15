@@ -10,6 +10,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import { getUser } from "../services/getUser";
 import { IUser } from "../../store/types";
@@ -25,7 +26,8 @@ type FormValues = {
 
 export const HomeRight = () => {
 	const [typeDoc, setTypeDoc] = useState("dni");
-	const [isDisabled, setisDisabled] = useState(false);
+	const [isDisabled, setisDisabled] = useState<boolean>(false);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	const handleChange = (event: SelectChangeEvent) => {
 		setTypeDoc(event.target.value as string);
@@ -56,6 +58,7 @@ export const HomeRight = () => {
 
 	const onSubmit = async (data: FormValues) => {
 		console.log(data);
+		setIsLoading(true);
 		const api = await getUser();
 		const user: IUser = {
 			username: api.username,
@@ -74,6 +77,7 @@ export const HomeRight = () => {
 
 		dispatch(addUser(user));
 		navigate("your-plan");
+		setIsLoading(false);
 	};
 
 	const getMsgError = (
@@ -183,8 +187,15 @@ export const HomeRight = () => {
 					</div>
 				</div>
 				<div className="group-btn">
-					<button className="btn" disabled={isDisabled}>
-						COTÍZALO
+					<button className="btn" disabled={isDisabled || isLoading}>
+						{isLoading ? (
+							<CircularProgress
+								className="loading"
+								color="inherit"
+							/>
+						) : (
+							<span>COTÍZALO</span>
+						)}
 					</button>
 				</div>
 			</form>

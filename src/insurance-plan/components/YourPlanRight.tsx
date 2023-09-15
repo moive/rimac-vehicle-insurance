@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { ItemCoveragePlan } from "./ItemCoveragePlan";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { useNavigate } from "react-router-dom";
+import { addUser } from "../../store/userSlice";
 
 export const YourPlanRight = () => {
 	const [amountTotal, setAmountTotal] = useState<number>(14300);
@@ -59,8 +60,13 @@ export const YourPlanRight = () => {
 
 	const state = useAppSelector((state) => state);
 	const { user } = state.user;
-
-	console.log({ user });
+	const dispatch = useAppDispatch();
+	const us = JSON.parse(localStorage.getItem("user") as string);
+	useEffect(() => {
+		if (!user && us) {
+			dispatch(addUser(us));
+		}
+	}, []);
 
 	const navigate = useNavigate();
 	const welcome = () => {
@@ -96,7 +102,8 @@ export const YourPlanRight = () => {
 				<div className="content-info-plan-left">
 					<div className="info-car">
 						<div className="info-car-number">
-							<span>Placa: </span> <span>{user?.car.plate}</span>
+							<span>Placa: </span>{" "}
+							<span className="upper">{user?.car.plate}</span>
 						</div>
 						<div className="info-car-model">
 							{/* Wolkswagen 2019 Golf */}
