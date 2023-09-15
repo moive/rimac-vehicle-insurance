@@ -17,16 +17,18 @@ export const WelcomeRight = () => {
 					alt=""
 				/>
 			</figure>
-			<div className="text-large">
-				<span className="text-red">¡Te damos la bienvenida! </span>{" "}
-				<br />
-				Cuenta con nosotros para proteger tu vehículo
+			<div className="welcome-right-info">
+				<div className="text-large">
+					<span className="text-red">¡Te damos la bienvenida! </span>{" "}
+					<br />
+					Cuenta con nosotros para proteger tu vehículo
+				</div>
+				<p>
+					Enviaremos la confirmación de compra de tu Plan Vehícular
+					Tracking a tu correo:
+					<br /> <span className="bold-roboto">{user?.email}</span>
+				</p>
 			</div>
-			<p>
-				Enviaremos la confirmación de compra de tu Plan Vehícular
-				Tracking a tu correo:
-				<br /> <span className="bold-roboto">{user?.email}</span>
-			</p>
 			<div className="group-btn">
 				<button className="btn middle">cómo usar mi seguro</button>
 			</div>

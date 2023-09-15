@@ -9,9 +9,13 @@
   width: 100%;
 }
 .welcome-right{
-  padding:112px 0 0 calc(226/1360 * 100%);
+  padding:112px 32px 120px calc(226/1360 * 100%);
   position: relative;
-  width: 45%;
+  width: 100%;
+  // width: 45%;
+  &-info{
+    max-width: 500px;
+  }
 }
 .btn{
   &.middle{
@@ -20,8 +24,33 @@
 }
 .welcome-image{
   position: absolute;
-  left: -42%;
+  left: -32%;
+  width: 42%;
+  img{
+    width: 100%;
+  }
 }
 .welcome-mobile{
   display: none;
+}
+
+@media (max-width:615px){
+  .welcome-left{
+    display: none;
+  }
+  .welcome-right{
+    padding:0 32px 120px;
+  }
+  .welcome-image{
+    margin-left: -32px;
+    margin-bottom: 48px;
+    position: static;
+    width: calc(100% + 64px);
+  }
+  .welcome-mobile{
+    display: block;
+  }
+  .welcome-desktop{
+    display: none;
+  }
 }
