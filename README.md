@@ -1,27 +1,30 @@
-# React + TypeScript + Vite
+# Seguro Vehicular Rimac
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto desarrollado con react, typescript y sass.
+El desarrollo del proyecto se realzó mediante módulos, tales como:
 
-Currently, two official plugins are available:
+-   Home, vista principal.
+-   Insurance-plan, plan de seguro.
+-   Welcome, bienvenido.
+-   Shared, genérico.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Cada modulo con su repectivo componentes, servicios y vistas.
 
-## Expanding the ESLint configuration
+## Librerías
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Se implementó [Material UI](https://mui.com/material-ui/getting-started/) en el proyecto por tema de diseño, especialmente en el formulario.
 
-- Configure the top-level `parserOptions` property like this:
+Redux, para intercomunicación de los components.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Server
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-   [Netlify](https://rimac-vehicle-insurance.netlify.app/)
+
+-   [Github](https://github.com/moive/rimac-vehicle-insurance)
+
+## Pasos para instalar y hacer funcionar el proyecto:
+
+-   Clonar el proyecto `https://github.com/moive/rimac-vehicle-insurance`
+-   Instalar dependencias del proyecto: `npm i`
+-   Hacer funcionar el proyecto en local: `npm run dev`
+-   Comando para compilar el proyecto en local: `npm run build`
